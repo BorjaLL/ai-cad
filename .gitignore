@@ -1,0 +1,16 @@
+# generator output (run the script to rebuild)
+*.stl
+*.3mf
+*.gcode
+*.pkl
+out/
+out_*/
+__pycache__/
+*.pyc
+.venv/
+*.log
+# local secrets
+.env
+*.egg-info/
+# uv run creates these from pyproject.toml; requirements.txt holds the pins
+uv.lock

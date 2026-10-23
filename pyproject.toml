@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aicad"
+version = "0.1.0"
+description = "Helpers and method for AI-designed, self-checking 3D-printable parts"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.12"
+# Lower bound = the version tested; upper bound = next major (untested beyond
+# the pinned versions in requirements.txt). Only Python 3.12 was run; the
+# pinned networkx 3.7 needs Python >= 3.12, so 3.10 and 3.11 are not supported.
+dependencies = [
+  "manifold3d>=3.5,<4",
+  "trimesh>=5.1,<6",
+  "numpy>=2.5,<3",
+  "matplotlib>=3.11,<4",
+  "shapely>=2.1,<3",
+  "lxml>=6.1,<7",
+  "networkx>=3.7,<4",
+  "rtree>=1.4,<2",
+  "scipy>=1.18,<2",
+]
+
+[tool.setuptools]
+packages = ["aicad"]

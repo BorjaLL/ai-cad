@@ -1,0 +1,399 @@
+{
+ "_doc": "Thin-wall and Z-thickness checks on 11 real parts (0.4 nozzle, 0.2 mm layers), run with tests/real_parts.py --min-wall 0.8 --min-z 0.6 --gate hard, one part at a time at low priority. Parts are anonymised (id + kind); the meshes are not in the repo, so these numbers are a record, not a reproducible benchmark (the synthetic cases in tests/test_z_thickness.py are). evidence per part: 'printed' = the printer's job log shows the print complete on evidence_date (not a strength or quality inspection); 'sliced' = it sliced without errors and no job in the printer log matched (it may have printed on another printer). None failed for thinness, so the set cannot show that the checks catch bad parts. 'after' = code at tested_code; parts with thin_walls findings were rerun after the review fixes (rerun_code), which changed only P11's thin_walls n_hard (3 -> 6). 'before_a87bcd9' = the previous code on 6 parts (5 of the 11, plus P12 in before_a87bcd9_only), no ok_hard then.",
+ "date": "2026-10-23",
+ "tested_code": "b8b967e (results produced from the working tree committed as b8b967e)",
+ "rerun_code": "e71600e (thin_walls only, parts P03 P05 P10 P11: the only ones with thin_walls findings; z_thickness unchanged by the fixes)",
+ "params": {
+  "min_wall_mm": 0.8,
+  "min_z_mm": 0.6,
+  "hard_min_mm": 0.4,
+  "min_layers": 2,
+  "min_taper_mm_per_mm": 0.36
+ },
+ "parts": [
+  {
+   "id": "P01",
+   "kind": "hinge coupon",
+   "evidence": "sliced",
+   "evidence_date": null,
+   "triangles": 10504,
+   "bodies": 5,
+   "after": {
+    "thin_walls": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 0.13
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 0.36
+    }
+   }
+  },
+  {
+   "id": "P02",
+   "kind": "spine coupon",
+   "evidence": "sliced",
+   "evidence_date": null,
+   "triangles": 13944,
+   "bodies": 6,
+   "after": {
+    "thin_walls": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 3.09
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 0.54
+    }
+   },
+   "before_a87bcd9": {
+    "thin_walls": {
+     "ok": true,
+     "findings": 0,
+     "verified": true,
+     "seconds": 2.05
+    },
+    "z_thickness": {
+     "ok": false,
+     "findings": 2,
+     "verified": true,
+     "seconds": 0.28
+    }
+   }
+  },
+  {
+   "id": "P03",
+   "kind": "board plate, 24 bodies",
+   "evidence": "sliced",
+   "evidence_date": null,
+   "triangles": 20058,
+   "bodies": 24,
+   "after": {
+    "thin_walls": {
+     "ok": false,
+     "findings": 4,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 0.43,
+     "rerun_code": "e71600e"
+    },
+    "z_thickness": {
+     "ok": false,
+     "findings": 4,
+     "ok_hard": false,
+     "n_hard": 4,
+     "verified": true,
+     "seconds": 12.39
+    }
+   },
+   "before_a87bcd9": {
+    "thin_walls": {
+     "ok": false,
+     "findings": 6,
+     "verified": true,
+     "seconds": 0.49
+    },
+    "z_thickness": {
+     "ok": false,
+     "findings": 9,
+     "verified": true,
+     "seconds": 6.83
+    }
+   }
+  },
+  {
+   "id": "P04",
+   "kind": "print-in-place hinge coupon",
+   "evidence": "sliced",
+   "evidence_date": null,
+   "triangles": 42744,
+   "bodies": 9,
+   "after": {
+    "thin_walls": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 0.1
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 1.94
+    }
+   },
+   "before_a87bcd9": {
+    "thin_walls": {
+     "ok": false,
+     "findings": 5,
+     "verified": true,
+     "seconds": 0.07
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "verified": true,
+     "seconds": 0.79
+    }
+   }
+  },
+  {
+   "id": "P05",
+   "kind": "organic figure",
+   "evidence": "sliced",
+   "evidence_date": null,
+   "triangles": 294622,
+   "bodies": 7,
+   "after": {
+    "thin_walls": {
+     "ok": false,
+     "findings": 3,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 12.74,
+     "rerun_code": "e71600e"
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 13.53
+    }
+   },
+   "before_a87bcd9": {
+    "thin_walls": {
+     "ok": false,
+     "findings": 14,
+     "verified": true,
+     "seconds": 14.13
+    },
+    "z_thickness": {
+     "ok": false,
+     "findings": 9,
+     "verified": true,
+     "seconds": 10.99
+    }
+   }
+  },
+  {
+   "id": "P06",
+   "kind": "organic figure",
+   "evidence": "printed",
+   "evidence_date": "2026-10-01",
+   "triangles": 227834,
+   "bodies": 1,
+   "after": {
+    "thin_walls": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 3.55
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 23.9
+    }
+   }
+  },
+  {
+   "id": "P07",
+   "kind": "plain functional part",
+   "evidence": "printed",
+   "evidence_date": "2026-09-30",
+   "triangles": 2044,
+   "bodies": 1,
+   "after": {
+    "thin_walls": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 0.2
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 0.01
+    }
+   },
+   "before_a87bcd9": {
+    "thin_walls": {
+     "ok": true,
+     "findings": 0,
+     "verified": true,
+     "seconds": 0.18
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "verified": true,
+     "seconds": 0.01
+    }
+   }
+  },
+  {
+   "id": "P08",
+   "kind": "plain functional part",
+   "evidence": "printed",
+   "evidence_date": "2026-10-14",
+   "triangles": 16430,
+   "bodies": 4,
+   "after": {
+    "thin_walls": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 0.15
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 1.91
+    }
+   }
+  },
+  {
+   "id": "P09",
+   "kind": "plain functional part, 5 bodies",
+   "evidence": "printed",
+   "evidence_date": "2026-09-29",
+   "evidence_note": "the log names a variant of this part; the exact file version is not confirmed",
+   "triangles": 85002,
+   "bodies": 5,
+   "after": {
+    "thin_walls": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 1.74
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 174.82
+    }
+   }
+  },
+  {
+   "id": "P10",
+   "kind": "thin-walled crate",
+   "evidence": "printed",
+   "evidence_date": "2026-09-30",
+   "triangles": 14258,
+   "bodies": 1,
+   "after": {
+    "thin_walls": {
+     "ok": false,
+     "findings": 76,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 3.03,
+     "rerun_code": "e71600e"
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 18.03
+    }
+   }
+  },
+  {
+   "id": "P11",
+   "kind": "decorated panel",
+   "evidence": "printed",
+   "evidence_date": "2026-10-19",
+   "triangles": 567288,
+   "bodies": 1,
+   "after": {
+    "thin_walls": {
+     "ok": false,
+     "findings": 58,
+     "ok_hard": false,
+     "n_hard": 6,
+     "verified": true,
+     "seconds": 17.26,
+     "rerun_code": "e71600e"
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "ok_hard": true,
+     "n_hard": 0,
+     "verified": true,
+     "seconds": 55.34
+    }
+   }
+  }
+ ],
+ "before_a87bcd9_only": [
+  {
+   "id": "P12",
+   "kind": "plain functional part (sister plate of P08)",
+   "evidence": "sliced",
+   "evidence_date": null,
+   "triangles": 6266,
+   "before_a87bcd9": {
+    "thin_walls": {
+     "ok": false,
+     "findings": 6,
+     "verified": true,
+     "seconds": 0.12
+    },
+    "z_thickness": {
+     "ok": true,
+     "findings": 0,
+     "verified": true,
+     "seconds": 0.29
+    }
+   }
+  }
+ ]
+}
