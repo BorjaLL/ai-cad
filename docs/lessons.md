@@ -2,8 +2,10 @@
 
 Setup for every line below unless it says otherwise: Elegoo Centauri Carbon 2,
 PLA, 0.4 nozzle, 0.2 mm layers, 1.75 mm filament used as hinge pins, September
-2026. Lessons from October 2026 name their material (PLA+, PETG) because it
-turned out to matter. Re-test each one on your printer (a 10 to 20 minute
+2026. Lessons from October and November 2026 name their material (PLA+,
+PETG) because it turned out to matter, and their printer when it is the
+Snapmaker U1 (0.4 nozzle) rather than the CC2. Each November lesson says
+whether it was printed or is software-only. Re-test each one on your printer (a 10 to 20 minute
 coupon, for example `examples/hole_gauge_strip.py`) before you design around
 it. Measured fit numbers are in [data/fits-measured.json](../data/fits-measured.json).
 
@@ -33,6 +35,34 @@ it. Measured fit numbers are in [data/fits-measured.json](../data/fits-measured.
 - **A press fit for a 10 mm magnet in a horizontal pocket is tighter than you
   think.** +0.2 per side: the magnet falls out; +0.1 with crush ribs: very
   loose. (CC2, PLA+, 2026-10-15 and 2026-10-16)
+- **Crush ribs turned a free bore into a push-on fit, found with one ladder
+  coupon.** A cup over a 30.0 mm foot (calipers): bore 30.4 with round
+  vertical ribs standing 0.10 / 0.25 / 0.40 mm into it, one ring per rib
+  height on one coupon, notches marking which is which. The 0.10 ring "fits
+  nicely" and went into the real part. The same printer printed a plain
+  32.2 vertical bore at 31.96 (one caliper reading). (Printed. Snapmaker U1,
+  PETG, 2026-11-01 and 2026-11-02)
+- **Clearance plus small crush ribs for a drop-in tab.** A T-tab at 0.25 mm per
+  side (a pocket test had judged that "solid, barely a little wiggle"), plus
+  vertical ribs at 0.05 mm interference with a 2 mm 45 deg lead-in, "fits
+  well". (Printed. CC2, PLA+ tab, 2026-11-01)
+- **The nominal size of the thing you clip onto is a poor guide.** A hook
+  slot of 6.05 mm for "6 mm" shower glass was too loose; a sheet clip at sheet
+  +0.10 and +0.20 was "super loose" on one printer bed. Neither mating
+  thickness was measured. A 0.2 mm strip of brim pushed into the loose clip
+  made it fit, which gave the next gap without a reprint. Flexing clips want
+  a gap under the sheet thickness so the arms pinch. (Printed. CC2, PLA+ and
+  PETG, 2026-10-28 and 2026-10-30; the narrower slot and clip are designed,
+  not yet printed)
+- **Seams and elephant foot decide the tight end of a tolerance test.** On a
+  peg-in-hole tolerance plate the 0.1 mm cylinder was tight on one printer
+  because of a raised seam ridge down its side, and on the other it first
+  "did not fit" and then did on a recheck, with elephant foot or the seam in
+  the way at first insertion. Calipers: holes 9.82, the 0.1 peg 9.67 to 9.72.
+  Keep the seam off mating faces and chamfer the bottom edge of pegs and
+  holes before you read a tight fit as a size error. Measure peg and hole at
+  foot, middle and top before compensating anything. (Printed. CC2 and U1,
+  PLA+, 2026-11-03)
 
 ## Fits and bearing faces
 
@@ -91,6 +121,12 @@ it. Measured fit numbers are in [data/fits-measured.json](../data/fits-measured.
   without one came off the bed. With a gap-0 brim, set elephant-foot
   compensation to 0 or the brim does not fuse to the part. (Snapmaker U1,
   PETG, 2026-10-18)
+- **A plate-wide brim with gap 0 fused to every part.** In PETG the brim could
+  not be cleaned off and printed washers were useless; the reprint with
+  per-object brims peeled clean. Brims on small Gridfinity bases were hard to
+  remove too. Use a brim gap (0.3 mm is our default now) and set gap 0 per
+  object, only on the tall thin parts that need it. (Printed. CC2, PETG and
+  PLA+, 2026-10-28 to 2026-10-31)
 - **A tiny foot under a flared part comes off the bed** even when every other
   check passes: 0.6 mm2 on the bed growing to about 49 mm2 3 mm up. Compare
   the first-layer area with the area a few mm up. (CC2, PLA, 2026-10-21)
@@ -102,6 +138,10 @@ it. Measured fit numbers are in [data/fits-measured.json](../data/fits-measured.
 - **A long part standing on thin straight supports wobbled, strung and went to
   spaghetti** at a side branch (165 mm, upright). On its side with support
   blockers it printed. (CC2, PLA, 2026-10-22)
+- **Tree supports under thin organic tips were very hard to remove** (the
+  tails of a figure). Look at where supports land on thin features in the
+  preview, and prefer a pose or a split that keeps them off. (Printed.
+  Snapmaker U1, PLA, 2026-10-31)
 - **A slender part can fail by leaning even when no wall is steep.** Walls at
   27 to 45 deg passed every per-layer overhang metric, but the centre of mass
   of the material above drifted outside the section under it and the part
@@ -121,6 +161,17 @@ it. Measured fit numbers are in [data/fits-measured.json](../data/fits-measured.
 - **Mark every variant on a test plate** (dots, notches, a number) so a
   result maps back to its variant after the parts leave the bed.
   (Method, 2026-10)
+- **Put the marks where you can see them in use.** Dots inside a clip's slot
+  could not be seen once the clip was on the plate; v2 moved them to notches
+  on the outside corners. (Printed. 2026-10-28)
+- **Every test piece gets a unique serial debossed in its bottom** (for
+  example K1, K2 on one printer, C1, C2 on the other), 0.4 mm deep, mirrored
+  so it reads with the piece turned over, sized to fit inside the bed face.
+  Name the serial in the print request and in the result. Test pieces had
+  become hard to tell apart. The bottom keeps the mark off the faces you
+  judge: a letter on a wall-test box was blamed for artifacts on that wall,
+  though a plain box in the same test streaked too. (Method, 2026-11-03; the
+  first serialled pieces are printing, legibility not yet confirmed)
 
 ## Mesh and file handling
 
@@ -158,6 +209,31 @@ it. Measured fit numbers are in [data/fits-measured.json](../data/fits-measured.
 - **Do not cut, bridge or smooth an AI-generated mesh at a joint.** Eight
   attempts failed in a row. Split at a plain round section, or draw the joint
   into the input image before generating. (Method, 2026-10-05)
+- **A closed internal cavity is a second mesh shell, not a second part.** A
+  sealed magnet cavity adds an inside surface, so a shell count of 3 can be
+  one solid. Check nesting or winding before you "fix" a disconnected part.
+  (Software only, 2026-10-26)
+- **Mirroring each glyph does not mirror a word.** For a stamp or a paired
+  die, mirror the whole text in an explicit view frame and prove it reads
+  right from the re-loaded exported assembly; letter order and flip axis were
+  the errors. (Software only, 2026-10-26)
+- **Zero-area triangles broke STEP-to-mesh conversion.** Two per compound in
+  one family of STEP files; removing them kept area and bounds and gave
+  closed meshes. Do not loosen the mesh checks to get a file through.
+  (Software only, 2026-10-28)
+- **Native CAD kernels crash the Python process.** One day of agent CAD work
+  gave 13 crash reports: OCCT face-unify and TetGen segfaults, and a 3D render
+  that aborted with no window server. Run crash-prone native calls in a child
+  process, check the result, and render headless (matplotlib Agg) inside
+  sandboxes. (Software only, 2026-10-26)
+- **Volume meshers fail on thin or floating bits.** A surface mesher
+  segfaulted on 0.25 mm design surfaces and a 0.08 mm floating ledge at the
+  bed; trimming the ledge flat and switching to a robust tetrahedral mesher
+  worked. Strength numbers from these models were not checked against a
+  print. (Software only, 2026-10-28)
+- **Cache and chunk heavy checks.** Caching the exact interface meshes and
+  chunking the slit and exactness checks took one part's check run from
+  16.4 GB to 1.7 GB peak memory. (Software only, 2026-10-30)
 - **Heavy mesh work can freeze the machine.** Booleans, thickness checks and
   slicing on 100k+ triangle meshes pegged every core; later one run paged
   all memory until the machine hard-froze. Run them through
