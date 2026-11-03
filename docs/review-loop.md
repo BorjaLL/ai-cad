@@ -50,3 +50,17 @@ still came from a coupon.
   already shares the author's assumptions.
 - A reviewer handed your hypothesis tends to confirm it. Give it the code and
   the checks, not your conclusion.
+
+## What we saw (November 2026)
+
+- **Photo reviews by two models, then the person.** Failure photos went to
+  two reviewers with a short brief each (the brief committed next to the
+  review). The person holding the print still corrected the agents' read:
+  boxes an agent called "streaked like the control" were "pretty good
+  compared to the earlier ones". Crop the corners and seams at full
+  resolution before reading a photo.
+- **Measure before you compensate.** A reviewer stopped a size compensation
+  for a failed tolerance test: measure peg and hole at foot, middle and top
+  first. The recheck showed the parts did fit, with the seam or elephant
+  foot in the way at first insertion.
+

@@ -65,6 +65,10 @@ Replace the <angle bracket> parts. Delete what you do not use.
   a tiny foot under a flared part.
 - Give the print time and grams from the slicer, and a numbered checklist with
   a pass condition per step.
+- Every test piece gets a unique serial debossed in its bottom (mirrored,
+  about 0.4 mm deep); every variant on a test plate gets a mark you can see
+  with the part in use. Name the serial in the request and the result.
+- Keep the seam off mating faces; chamfer the bottom edge of pegs and holes.
 - Prints over <1 hour>, or changes to a joint that already passed: get a
   read-only second-model review first, then answer each point in `DESIGN.md`.
 
@@ -75,6 +79,9 @@ Replace the <angle bracket> parts. Delete what you do not use.
 - Change the smallest thing that explains the failure. One change per coupon
   when possible.
 - When a version passes, record the exact command line that built it.
+- Untested work (code, settings, a fix, a cause) gets a tracked test task
+  the day it lands.
+- A failed step is redone at once with the fixed method before the next one.
 
 ## Writing
 

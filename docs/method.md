@@ -107,6 +107,8 @@ one after a failed print:
 | Supports inside bores | supports you cannot remove | slicer preview, by hand |
 | First-layer foot vs area a few mm up; brim on tall parts | parts knocked off the bed | slicer preview, by hand |
 | Thin walls and thin roofs | features the slicer drops or prints as one weak line | `aicad.thickness`, gate on `ok_hard` |
+| Seam on a mating face (added November 2026) | tight pegs and holes from a seam ridge | slicer preview, by hand |
+| Slicer floating-region warning (added November 2026) | relayed "as designed" without looking | view the preview at that height, or add supports |
 
 Report every gate by name, result and what it covers. Keep hypotheses ("it
 should hold") apart from physical results ("it held, 2026-10-16").
@@ -141,3 +143,29 @@ current.
 - **Licence gate for generated meshes.** Record the image-to-3D generator's
   licence before you build on its output; at least one excludes some
   countries from its licence.
+
+## Test pieces and follow-up (November 2026)
+
+- **Serial on the bottom of every test piece.** A unique short code (K1, K2,
+  ...) debossed 0.4 mm into the bed face, mirrored so it reads with the
+  piece turned over. The print request and the result both name it, so a
+  photo or a note maps to one file and one set of settings. Variant marks
+  go where you can see them with the part in use.
+- **Untested work gets a test task when it lands.** Code, a setting, a fix
+  or a claimed cause that has not been printed gets a tracked test item the
+  same day, so "done in software" does not read as "works".
+- **A failed step is redone at once,** with the fixed method, before the
+  next step of the test plan.
+- **A reprint request says what changed** since the failed print, and why,
+  in one to three lines.
+- **First print of a download: apply the known fixes first.** Read the
+  newest version of the listing, its comments and the slicer warnings, and
+  apply the fixes they already name before the first print. A downloaded
+  part's tolerances suit the designer's printer: one set of rails was too
+  tight and broke on assembly here.
+- **Look for ready-made features first.** Threads, Gridfinity bins, gears,
+  hinges and text tags exist as parametric generators in browser CAD tools
+  and libraries; import their mesh into your generator instead of modelling
+  them by hand. A thread rebuilt with 45 deg flanks needs no support (not yet
+  printed).
+
