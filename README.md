@@ -5,8 +5,9 @@ functional 3D prints in Python. No CAD GUI: the agent writes a parametric
 generator, the generator checks itself, you print a small test piece, report
 what failed, and the agent iterates.
 
-The numbers in `docs/lessons.md` come from one setup (Elegoo Centauri Carbon 2,
-PLA, PLA+ and PETG, 0.4 nozzle, 0.2 mm layers, September and October 2026). Your printer and filament
+The numbers in `docs/lessons.md` come from one person's printers (mostly an
+Elegoo Centauri Carbon 2, some on a Snapmaker U1; PLA, PLA+ and PETG, 0.4
+nozzle, 0.2 mm layers, September to November 2026). Your printer and filament
 will give different numbers. The method carries over; the numbers are a
 starting point to test, not values to copy.
 
@@ -18,6 +19,19 @@ joint), have the agent build it from the same code as the full part, and give
 it a numbered pass/fail checklist. Print, test by hand, write the result down
 with the date, and let the agent change one thing at a time. A second model
 reviews each plan before you spend filament. Details: [docs/method.md](docs/method.md).
+
+## What changed (2026-11)
+
+- `docs/lessons.md`: crush-rib ladders, drop-in tabs, clips on sheets of
+  unmeasured thickness, seams and elephant foot in tolerance tests, brim gap
+  0 fusing PETG parts, supports on thin tips, serials on test pieces, and six
+  software-only mesh and kernel lessons. Each says printed or software-only.
+- `data/fits-measured.json`: three new trials (two passes, one loose
+  failure); entries may now carry `printer` and `layer_mm`.
+- `docs/method.md`: two new print gates (seam on a mating face, floating
+  warnings) and a section on test pieces and follow-up.
+- `docs/review-loop.md` and `templates/AGENTS.md`: photo reviews, measure
+  before compensating, serials and test tasks.
 
 ## What's inside
 
