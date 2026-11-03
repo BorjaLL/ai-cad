@@ -16,6 +16,8 @@ def test_fits_measured_entries_complete():
         assert e["per_side_basis"] in ("cad_nominal", "measured"), e
         assert 0 <= e["per_side_mm"] < 1 and e["material"] and e["outcome"] and e["case"], e
         assert len(e["date"]) == 10 and e["date"].startswith("2026-"), e
+        assert isinstance(e.get("printer", ""), str), e
+        assert 0 < e.get("layer_mm", 0.2) < 1, e
         if e["target_fit"] and e["observed_fit"] != e["target_fit"]:
             assert e["passed"] is False, e     # missed its target: a failure
 
