@@ -28,6 +28,10 @@ reviews each plan before you spend filament. Details: [docs/method.md](docs/meth
   software-only mesh and kernel lessons. Each says printed or software-only.
 - `data/fits-measured.json`: three new trials (two passes, one loose
   failure); entries may now carry `printer` and `layer_mm`.
+- `docs/lessons.md` (2026-11-11): a surface-finish section (long
+  conditional scarf seams on round walls; acceleration bands up to 20000
+  and what they buy), plus two test-method lessons (twin pieces with
+  reversed bands; judge finish head-on against a control band).
 - `docs/method.md`: two new print gates (seam on a mating face, floating
   warnings) and a section on test pieces and follow-up.
 - `docs/review-loop.md` and `templates/AGENTS.md`: photo reviews, measure

@@ -153,6 +153,30 @@ it. Measured fit numbers are in [data/fits-measured.json](../data/fits-measured.
   from published layer-adhesion tests, applied once, 2026-10-08; we have not
   measured the strength gain ourselves)
 
+## Surface finish (added November 2026)
+
+- **A long, conditional scarf seam hid the seam on a round wall, not on
+  corners.** OrcaSlicer-family settings: scarf on contours and holes,
+  conditional on, scarf length 20 mm, 10 steps, start height 0, slope gap
+  10 %, no wipe on loops. On a cylinder the scarf version was "much better
+  seam but not 100 % perfect" against no scarf; on a hexagon the two seams
+  were "very similar, hard to see", because the conditional scarf skips
+  sharp corners and the seam hides in a corner anyway. An earlier forced
+  2 mm scarf on every corner left a blob on a vertex. One A/B plate, so treat
+  it as a direction, not a proven default. (Printed. CC2, white PLA+,
+  2026-11-11)
+- **Above a moderate acceleration cap, ringing did not show clearly by eye;
+  the speed gain is small and only on corner-heavy walls.** Two open boxes,
+  walls at a fixed 160 mm/s, acceleration in 5 mm bands of 8000 / 12000 /
+  16000 / 20000 mm/s2, band order reversed on the twin. No layer shift and no
+  clear echo next to the notches at any band in head-on photos; the
+  previous day, a single-box coupon looked rippled from 10000. Reaching
+  160 mm/s takes about 1.6 mm at 8000 and 0.6 mm at 20000, which works out
+  to roughly 15 % less time per layer on a wall with many short segments
+  and close to nothing on long straight walls (computed, not timed). Our
+  rule now: 20000 only for parts where ripples do not matter, the lower cap
+  for show faces. (Printed. CC2 on community firmware, PLA+, 2026-11-11)
+
 ## Fit coupons
 
 - **Fit coupons test shape and fit, not strength.** Two walls, 10 to 15 %
@@ -172,6 +196,19 @@ it. Measured fit numbers are in [data/fits-measured.json](../data/fits-measured.
   judge: a letter on a wall-test box was blamed for artifacts on that wall,
   though a plain box in the same test streaked too. (Method, 2026-11-03; the
   first serialled pieces are printing, legibility not yet confirmed)
+
+- **Test a print setting in bands on twin pieces with the band order
+  reversed.** One tower with the value rising with height mixes the setting
+  with height (cooling, wobble, the base). Two copies, one bottom-up and one
+  top-down, print each value low on one and high on the other; mark the
+  pieces (one dot, two dots) and put a shallow groove at each band boundary
+  so the bands can be read off the part. (Method, 2026-11-11)
+- **Judge surface tests head-on and in the same light for every piece.**
+  Raking-light photos taken at an angle showed "ripples" in the fast bands
+  that head-on photos of the same faces did not; streaks along the layers
+  appeared on the slow control band too, so they were not from the setting.
+  Read a defect only where the control band in the same photo is clean.
+  (Method, 2026-11-11)
 
 ## Mesh and file handling
 
